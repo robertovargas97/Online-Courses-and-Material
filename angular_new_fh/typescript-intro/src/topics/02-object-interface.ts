@@ -1,0 +1,19 @@
+const skills: string[] = ["Bash", "Healing", "Counter"];
+
+interface Character {
+  name: string;
+  hp: number;
+  skills: string[];
+  hometown?: string;
+}
+
+const strider: Character = {
+  name: "Strider",
+  hp: 100,
+  skills: ["Bash", "Counter"],
+};
+
+strider.hometown = "Desampa";
+
+console.table(strider);
+export {};
