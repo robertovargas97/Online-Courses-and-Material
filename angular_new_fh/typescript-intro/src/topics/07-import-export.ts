@@ -1,5 +1,19 @@
-import { Product } from "./04-destructuring";
+import { calculateTax, Product } from "./04-destructuring";
 
-const shoppingCart: Product[] = [];
+const shoppingCart: Product[] = [
+  {
+    description: "Nokia",
+    price: 100,
+  },
+  {
+    description: "Ipad",
+    price: 200,
+  },
+];
 
-console.log(shoppingCart);
+const [total, tax] = calculateTax({ tax: 0.13, products: shoppingCart });
+
+console.log({ total });
+console.log({ tax });
+
+// console.log(shoppingCart);

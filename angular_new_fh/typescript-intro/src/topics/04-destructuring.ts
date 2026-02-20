@@ -55,13 +55,13 @@ const tablet: Product = {
   price: 200,
 };
 
-interface TaxOptions {
+export interface TaxOptions {
   tax: number;
   products: Product[];
 }
 
 // function calculateTax({ tax, products }: TaxOptions): [number, number] {
-function calculateTax(options: TaxOptions): [number, number] {
+export function calculateTax(options: TaxOptions): [number, number] {
   const { tax, products } = options;
   let total = 0;
   products.forEach(({ price }) => {
@@ -76,5 +76,5 @@ const tax = 0.15;
 
 const [total, calculatedTax] = calculateTax({ products: shoppingCart, tax });
 
-console.log({ Total: total });
-console.log({ Tax: calculatedTax });
+// console.log({ Total: total });
+// console.log({ Tax: calculatedTax });
