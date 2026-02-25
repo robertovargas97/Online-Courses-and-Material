@@ -1,0 +1,48 @@
+<h1>Dragon Ball Page</h1>
+<hr>
+
+
+<section class="container">
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <h2>Dragon Ball Characters</h2>
+      <br>
+      <h3>Add Character:</h3>
+      <label for="name">Name: {{ newName() }}</label>
+      <input id="name" type="text" placeholder="Name" class="form-control mt-2" [value]="newName()"
+        (change)="newName.set(txtName.value)" #txtName>
+
+      <label class="mt-2" for="power">Power: {{ newPower() }}</label>
+      <input id="power" type="number" placeholder="Power" class="form-control mt-2" [value]="newPower()"
+        (change)="newPower.set(parseToNumber(txtPower.value))" #txtPower>
+
+      <button (click)="addCharacter({ name: newName(), power: newPower() })" class="btn btn-primary mt-2">Add
+        Character</button>
+
+    </div>
+
+    <div class="col-12 col-sm-6">
+      <h3>Characters</h3>
+      <ul>
+        @for (character of characters(); track character.id; let i = $index) {
+        @if (character.power > 500) {
+        <li>
+          {{i + 1}}
+          <span>{{ character.name }}</span> {{" "}}
+
+          <strong [class.text-danger]="character.power > 9000" [class.text-info]="character.power < 9000">
+            <!-- <span [ngClass]="powerClasses()"> -->
+            ({{ character.power }})
+          </strong>
+
+        </li>
+        }
+        @else {
+        <li>Character power is too low</li>
+        }
+        }
+      </ul>
+    </div>
+  </div>
+
+</section>

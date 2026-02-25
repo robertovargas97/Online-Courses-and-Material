@@ -1,0 +1,17 @@
+<div class="col-12 col-sm-6">
+
+  <h2>Dragon Ball Characters</h2>
+  <br>
+  <h3>Add Character:</h3>
+  <label for="name">Name: {{ newName() }}</label>
+  <input id="name" type="text" placeholder="Name" class="form-control mt-2" [value]="newName()"
+    (change)="newName.set(txtName.value)" #txtName>
+
+  <label class="mt-2" for="power">Power: {{ newPower() }}</label>
+  <input id="power" type="number" placeholder="Power" class="form-control mt-2" [value]="newPower()"
+    (change)="newPower.set(+txtPower.value)" #txtPower>
+
+  <button (click)="addCharacter()" class="btn btn-primary mt-2">Add
+    Character</button>
+
+</div>

@@ -1,4 +1,5 @@
 {
+  "windsurf.completionSound.enabled": false,
   "audioCues.enabled": "off",
   "workbench.colorTheme": "Monokai Luminous",
   "workbench.colorCustomizations": {
@@ -27,5 +28,11 @@
     "titleBar.activeForeground": "#ffffff",
     "titleBar.inactiveBackground": "#004a4ba8",
     "titleBar.inactiveForeground": "#ffffff",
+  },
+  "angular-schematics.schematicsDefaultOptions": {
+    "angular-*": {
+      "externalTemplate": true,
+      "skipStyle": true
+    }
   },
 }
