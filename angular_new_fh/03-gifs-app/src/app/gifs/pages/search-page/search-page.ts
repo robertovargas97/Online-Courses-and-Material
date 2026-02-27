@@ -11,10 +11,17 @@ import type { Gif } from '../../interfaces/git.interface';
 export default class SearchPage {
   searchGifsService = inject(GifsService);
   gifs = signal<Gif[]>([]);
+  searchTerm = signal<string>('');
 
   onSearch(searchTerm: string) {
+    this.searchTerm.set(searchTerm);
     this.searchGifsService.searchGifs(searchTerm).subscribe((gifs) => {
       this.gifs.set(gifs);
     });
+    this.resetSearchInput();
+  }
+
+  resetSearchInput() {
+    this.searchTerm.set('');
   }
 }

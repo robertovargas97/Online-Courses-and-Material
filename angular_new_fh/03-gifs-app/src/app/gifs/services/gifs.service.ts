@@ -60,7 +60,7 @@ export class GifsService {
       tap((gifs) => {
         this.searchHistory.update((history: Record<string, Gif[]>) => ({
           ...history,
-          [searchTerm]: gifs,
+          [searchTerm.toLowerCase()]: gifs,
         }));
       }),
     );
