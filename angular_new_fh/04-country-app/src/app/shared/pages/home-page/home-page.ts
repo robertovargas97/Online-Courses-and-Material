@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Footer } from '../../components/footer/footer';
 
 @Component({
   selector: 'home-page',
-  imports: [RouterLink, Footer],
+  imports: [RouterLink],
   templateUrl: './home-page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

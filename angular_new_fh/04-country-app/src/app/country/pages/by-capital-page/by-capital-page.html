@@ -1,2 +1,2 @@
-<country-search-section placeholder="Search Country By Capital"></country-search-section>
-<countries-list></countries-list>
+<country-search-section placeholder="Search Country By Capital" (value)="onSearch($event)"></country-search-section>
+<countries-list [countries]="countries()"></countries-list>
