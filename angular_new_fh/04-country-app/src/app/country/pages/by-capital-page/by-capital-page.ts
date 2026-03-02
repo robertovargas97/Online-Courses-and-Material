@@ -3,9 +3,10 @@ import { SearchSection } from '../../components/search-section/search-section';
 import { CountriesList } from '../../components/countries-list/countries-list';
 import { CountriesService } from '../../services/countries.service';
 import { Country } from '../../interfaces/country.interface';
+import { CountryListAlert } from '../../components/country-list-alert/country-list-alert';
 @Component({
   selector: 'by-capital-page',
-  imports: [SearchSection, CountriesList],
+  imports: [SearchSection, CountriesList, CountryListAlert],
   templateUrl: './by-capital-page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -15,6 +16,7 @@ export class ByCapitalPage {
   isLoading = signal(false);
   isError = signal<string | null>(null);
   countries = signal<Country[]>([]);
+  headerIndicator = signal<string>('');
 
   onSearch(searchQuery: string) {
     if (this.isLoading()) return;
@@ -23,18 +25,15 @@ export class ByCapitalPage {
 
     this.countriesService.searchByCapital(searchQuery).subscribe({
       next: (countries) => {
-        console.log('Entre next', countries);
         this.countries.set(countries);
+        this.headerIndicator.set(searchQuery);
+        this.isLoading.set(false);
       },
       error: (error) => {
-        console.log('Entre error');
+        this.isError.set('Countries with capital ' + searchQuery + ' not found');
         this.countries.set([]);
-        this.isError.set(error.error.message);
         this.isLoading.set(false);
-      },
-      complete: () => {
-        console.log('Entre complete');
-        this.isLoading.set(false);
+        this.headerIndicator.set('');
       },
     });
   }

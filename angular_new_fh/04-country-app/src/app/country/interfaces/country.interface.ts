@@ -5,4 +5,5 @@ export interface Country {
   flagSVG: string;
   capital: string;
   population: number;
+  spanishName: string;
 }

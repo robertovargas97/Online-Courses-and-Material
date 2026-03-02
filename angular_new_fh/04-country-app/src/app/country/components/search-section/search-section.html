@@ -1,9 +1,9 @@
 <section class="flex flew-row gap-2 mt-2">
 
   <input type="text" [placeholder]="placeholder()" class="input input-bordered mr-2 w-[100%]" autofocus #txtSearch
-    (keyup.enter)="value.emit(txtSearch.value)" />
+    (keyup.enter)="emitSearchValue(txtSearch)" />
 
-  <button class="btn btn-primary" (click)="value.emit(txtSearch.value)">
+  <button class="btn btn-primary" (click)="emitSearchValue(txtSearch)">
 
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
       <path fill="none" stroke="currentColor"

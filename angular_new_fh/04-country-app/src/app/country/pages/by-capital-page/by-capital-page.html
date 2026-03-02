@@ -1,2 +1,14 @@
-<country-search-section placeholder="Search Country By Capital" (value)="onSearch($event)"></country-search-section>
-<countries-list [countries]="countries()"></countries-list>
+<country-search-section placeholder="Search Country By Capital" (value)="onSearch($event)">
+
+</country-search-section>
+
+@if (isError()){
+<country-list-alert [message]="isError()!" [alertType]="'warning'"></country-list-alert>
+}
+
+@else if (countries().length === 0 && !isLoading()){
+<country-list-alert [message]="'No countries in the list'" [alertType]="'info'"></country-list-alert>
+}
+@else {
+<countries-list [countries]="countries()" [headerIndicator]="headerIndicator()"></countries-list>
+}

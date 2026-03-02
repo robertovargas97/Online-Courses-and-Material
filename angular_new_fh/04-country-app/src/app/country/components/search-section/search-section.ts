@@ -8,4 +8,13 @@ import { Component, input, output } from '@angular/core';
 export class SearchSection {
   placeholder = input.required<string>();
   value = output<string>();
+
+  emitSearchValue = (input: HTMLInputElement) => {
+    this.value.emit(input.value);
+    this.resetInputValue(input);
+  };
+
+  resetInputValue = (input: HTMLInputElement) => {
+    input.value = '';
+  };
 }

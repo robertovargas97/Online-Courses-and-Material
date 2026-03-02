@@ -1,12 +1,15 @@
 <div class="overflow-x-auto p-5 mt-2">
   <table class="table">
     <!-- head -->
+    <caption class="text-2xl mb-5 font-bold"> Search Term : <span class="text-primary">{{ headerIndicator() }}</span>
+    </caption>
     <thead>
       <tr>
         <th>#</th>
         <th>Icon</th>
         <th>Flag</th>
         <th>Name</th>
+        <th>Spanish Name</th>
         <th>Capital</th>
         <th>Population</th>
         <th></th>
@@ -26,9 +29,13 @@
 
         <td>{{ country.name }}</td>
 
+        <td>{{ country.spanishName }}</td>
+
         <td>{{ country.capital }}</td>
 
-        <td>{{ country.population }}</td>
+        <td>
+          <span class="badge badge-primary">{{ country.population | number}}</span>
+        </td>
 
         <td>
           <a class="link-primary cursor-pointer">More Info</a>
