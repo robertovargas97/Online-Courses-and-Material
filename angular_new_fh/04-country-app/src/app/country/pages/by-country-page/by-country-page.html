@@ -1,2 +1,6 @@
-<country-search-section placeholder="Search Country By Name"></country-search-section>
-<countries-list [countries]="[]" [headerIndicator]="''"></countries-list>
+<country-search-section placeholder="Search Country By Name" (value)="onSearch($event)">
+
+</country-search-section>
+
+<countries-list [countries]="countries()" [headerIndicator]="headerIndicator()" [isEmpty]="isEmpty()"
+  [isLoading]="isLoading()" [isError]="isError()"></countries-list>

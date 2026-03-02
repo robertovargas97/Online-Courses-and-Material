@@ -8,7 +8,8 @@ export class CountryMapper {
       cca2: restCountry.cca2,
       flag: restCountry.flag,
       flagSVG: restCountry.flags.svg,
-      name: restCountry.name.common,
+      commonName: restCountry.name.common,
+      officialName: restCountry.name.official,
       population: restCountry.population,
       spanishName: restCountry.translations?.['spa']?.common ?? '',
     };
