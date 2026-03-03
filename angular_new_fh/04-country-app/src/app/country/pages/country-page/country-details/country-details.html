@@ -1,0 +1,74 @@
+<section class="mt-5 mx-10 flex justify-center flex-row">
+  <h1 class="text-3xl font-bold">Country Common Name: {{countryData().commonName}}</h1>
+</section>
+
+<section class="mx-10 mt-2 flex justify-center flex-row">
+  <h1 class="text-lg font-thin"> Country Official Name: {{countryData().officialName}}</h1>
+</section>
+
+<div class="hover-3d flex justify-center my-10">
+  <!-- content -->
+  <figure class="max-w-100 rounded-2xl">
+    <img src="{{countryData().flagSVG}}" alt="3D card" />
+  </figure>
+  <!-- 8 empty divs needed for the 3D effect -->
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+
+<div class="stats shadow my-15 flex justify-center">
+  <div class="stat">
+    <div class="stat-figure text-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M9.808 21.5V8.333q-1.871-.35-3.1-1.792q-1.227-1.441-1.4-3.349h1Q6.5 4.998 7.78 6.211t2.97 1.212h2.5q.577 0 .977.17t.81.578l4.236 4.237l-.707.708l-4.374-4.374V21.5h-1v-5.884h-2.384V21.5zm.991-16.222q-.491-.492-.491-1.201t.491-1.201T12 2.385t1.201.491t.491 1.201t-.491 1.201q-.492.491-1.201.491t-1.201-.491" />
+      </svg>
+    </div>
+    <div class="stat-title">Population</div>
+    <div class="stat-value">{{countryData().population | number}}</div>
+    <div class="stat-desc">Since {{getCurrentYear()}}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-figure text-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M12.003 21q-1.866 0-3.51-.708q-1.643-.709-2.859-1.924t-1.925-2.856T3 12.003t.709-3.51Q4.417 6.85 5.63 5.634t2.857-1.925T11.997 3t3.51.709q1.643.708 2.859 1.922t1.925 2.857t.709 3.509t-.708 3.51t-1.924 2.859t-2.856 1.925t-3.509.709M12 20q3.35 0 5.675-2.325T20 12q0-.175-.003-.353t-.022-.341q-.067.667-.53 1.104q-.464.436-1.137.436h-2.539q-.698 0-1.195-.496t-.497-1.193v-.845h-3.385v-1.69q0-.697.498-1.198q.497-.501 1.195-.501h.846v-.77q0-.728.476-1.146t1.137-.482q-.673-.26-1.38-.392T12 4Q8.65 4 6.325 6.325T4 12v.289q0 .134.02.288H8.5q1.42 0 2.402.983q.983.982.983 2.393v.855H9.346v2.73q.616.222 1.286.342T12 20" />
+      </svg>
+    </div>
+    <div class="stat-title">Country Code</div>
+    <div class="stat-value">{{countryData().cca2}}</div>
+    <div class="stat-desc">{{countryData().flag}}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-figure text-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M5.692 19V9.946L2.604 12.25L2 11.458L12 4l4.346 3.223V5h1.885v3.639l3.788 2.819l-.603.792l-3.089-2.304V19h-4.52v-5.23h-3.615V19zm4.5-8.994h3.616q0-.704-.542-1.159q-.543-.455-1.266-.455t-1.265.455t-.543 1.159" />
+      </svg>
+    </div>
+    <div class="stat-title">Capital</div>
+    <div class="stat-value">{{countryData().capital}}</div>
+    <div class="stat-desc">{{countryData().region}}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-figure text-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M15.327 22q-2.292 0-4.04-1.338T8.93 17.23q.76.011 1.437-.11q.676-.121 1.33-.39h5.177q.044-.372.067-.74q.022-.368.022-.739q0-.321-.022-.664q-.023-.344-.067-.665h-1.436q.188-.238.353-.479q.164-.24.324-.521h4.332q-.5-1.038-1.354-1.812q-.853-.775-1.96-1.152q.049-.25.077-.505q.028-.256.022-.525q2.092.611 3.43 2.358T22 15.328q0 2.779-1.947 4.726T15.327 22m-1.221-1.204q-.425-.75-.716-1.513q-.292-.764-.45-1.552h-2.713q.54 1.182 1.555 2t2.324 1.065m1.221.139q.53-.743.859-1.548q.328-.806.516-1.656h-2.75q.189.85.51 1.655q.32.806.865 1.548m1.221-.138q1.31-.248 2.334-1.065t1.564-2h-2.733q-.182.788-.461 1.552q-.279.763-.704 1.513m1.325-4.065h2.95q.088-.327.133-.68q.044-.353.044-.724t-.044-.724t-.133-.68h-2.95q.044.321.066.665q.022.343.022.664q0 .371-.022.74q-.022.368-.066.739m-9.2-1.385q-2.779 0-4.726-1.947T2 8.673t1.947-4.726T8.673 2t4.726 1.947t1.947 4.726t-1.947 4.726t-4.726 1.947M6.308 7.981q.29 0 .51-.21q.22-.211.22-.521t-.22-.52t-.51-.21q-.31 0-.52.21t-.211.52t.21.52t.52.21m2.366 4.093q.989 0 1.801-.454t1.315-1.196l-6.231-.02q.502.763 1.324 1.216q.822.454 1.791.454m2.385-4.092q.29 0 .51-.21q.22-.211.22-.521t-.22-.52t-.51-.21q-.31 0-.52.21t-.211.52t.21.52t.52.21" />
+      </svg>
+    </div>
+    <div class="stat-title">Spanish Name</div>
+    <div class="stat-value">{{countryData().spanishName}}</div>
+  </div>
+
+</div>

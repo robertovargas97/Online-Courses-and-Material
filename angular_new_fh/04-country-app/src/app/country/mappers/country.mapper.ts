@@ -12,6 +12,7 @@ export class CountryMapper {
       officialName: restCountry.name.official,
       population: restCountry.population,
       spanishName: restCountry.translations?.['spa']?.common ?? '',
+      region: restCountry.region,
     };
   };
 

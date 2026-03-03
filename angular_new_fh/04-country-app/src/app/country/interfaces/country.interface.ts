@@ -7,4 +7,5 @@ export interface Country {
   population: number;
   spanishName: string;
   officialName: string;
+  region: string;
 }
