@@ -25,10 +25,10 @@ export class ByCapitalPage {
 
     this.countriesService.searchByCapital(searchQuery).subscribe({
       next: (countries) => {
-        this.countries.set(countries);
         this.isEmpty.set(countries.length === 0);
         this.headerIndicator.set(searchQuery);
         this.isLoading.set(false);
+        this.countries.set(countries);
       },
       error: (error) => {
         this.isError.set('There was an error searching with the value: ' + searchQuery);

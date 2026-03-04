@@ -1,1 +1,27 @@
-<countries-list [countries]="[]" [headerIndicator]="''"></countries-list>
+<div class="flex flex-row gap-4 justify-center pt-4">
+
+
+  <div class="dropdown dropdown-center w-full">
+    <div tabindex="0" role="button" class="btn btn-outline btn-primary w-full">
+      Click to select a region
+      <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="m11.565 13.873l-2.677-2.677q-.055-.055-.093-.129q-.037-.073-.037-.157q0-.168.11-.289q.112-.121.294-.121h5.677q.181 0 .292.124t.111.288q0 .042-.13.284l-2.677 2.677q-.093.093-.2.143t-.235.05t-.235-.05t-.2-.143" />
+      </svg>
+    </div>
+    <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 shadow-sm">
+      <@for (region of regions; track $index) { <li>
+        <a class="btn btn-outline btn-primary mb-2" (click)="onClickRegionButton(region, $event)"
+          [class.btn-active]="selectedRegion() === region">{{region}}
+        </a>
+        </li>
+        }
+    </ul>
+  </div>
+
+
+</div>
+
+
+<countries-list [countries]="countries()" [headerIndicator]="selectedRegion()!" [isEmpty]="isEmpty()"
+  [isLoading]="isLoading()" [isError]="isError()"></countries-list>
