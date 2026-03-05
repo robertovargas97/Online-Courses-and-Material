@@ -1,4 +1,4 @@
-import { Component, effect, input, output, signal } from '@angular/core';
+import { Component, effect, input, linkedSignal, output } from '@angular/core';
 
 @Component({
   selector: 'country-search-section',
@@ -10,7 +10,9 @@ export class SearchSection {
   placeholder = input.required<string>();
   value = output<string>();
 
-  inputValue = signal('');
+  initialValue = input<string>('');
+
+  inputValue = linkedSignal<string>(() => this.initialValue() || '');
 
   emitSearchValue = (input: HTMLInputElement) => {
     this.value.emit(input.value);

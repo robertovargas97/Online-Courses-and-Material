@@ -1,8 +1,17 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  effect,
+  inject,
+  linkedSignal,
+  signal,
+  untracked,
+} from '@angular/core';
 import { SearchSection } from '../../components/search-section/search-section';
 import { CountriesList } from '../../components/countries-list/countries-list';
 import { CountriesService } from '../../services/countries.service';
 import { Country } from '../../interfaces/country.interface';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'by-capital-page',
   imports: [SearchSection, CountriesList],
@@ -17,6 +26,25 @@ export class ByCapitalPage {
   isError = signal<string | null>(null);
   countries = signal<Country[]>([]);
   headerIndicator = signal<string>('');
+
+  activatedRoute = inject(ActivatedRoute);
+  queryParam = this.activatedRoute.snapshot.queryParamMap.get('capital') ?? '';
+  query = linkedSignal<string>(() => this.queryParam || '');
+
+  router = inject(Router);
+
+  queryEffect = effect(() => {
+    console.log('q', this.query());
+    const capital = this.query();
+    if (!capital) return;
+
+    this.router.navigate(['/countries/by-capital'], {
+      queryParams: {
+        capital: capital,
+      },
+    });
+    untracked(() => this.onSearch(capital));
+  });
 
   onSearch(searchQuery: string) {
     if (this.isLoading()) return;
