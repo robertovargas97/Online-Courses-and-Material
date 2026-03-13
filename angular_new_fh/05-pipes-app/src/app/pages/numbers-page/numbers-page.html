@@ -1,1 +1,24 @@
-<p>numbers-page works!</p>,
+<section class="mt-8 flex flex-col items-center">
+  <h1 class="text-3xl font-bold">Numeric Pipes</h1>
+  <h3 class="text-2xl font-thin text-gray-600">Included pipes in Angular</h3>
+</section>
+
+<div class="stats stats-vertical lg:stats-horizontal shadow mt-8  bg-base-200 w-full">
+  <div class="stat flex flex-col items-center">
+    <div class="stat-title">Number</div>
+    <div class="stat-value">{{ totalSells() | number:'1.2-2' }}</div>
+    <div class="stat-desc">{{totalSells()}}</div>
+  </div>
+
+  <div class="stat flex flex-col items-center">
+    <div class="stat-title">Currency</div>
+    <div class="stat-value">{{ totalSells() | currency:'USD':'symbol-narrow' : '1.2-2' }}</div>
+    <div class="stat-desc">{{totalSells()}}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Percentage</div>
+    <div class="stat-value">{{ percentage() | percent:'1.1-1' }}</div>
+    <div class="stat-desc">{{percentage()}}</div>
+  </div>
+</div>

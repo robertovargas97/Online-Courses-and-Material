@@ -1,1 +1,69 @@
-<p>basic-page works!</p>,
+<section class="mt-8 flex flex-col items-center">
+  <h1 class="text-3xl font-bold">Basic Pipes</h1>
+  <h3 class="text-2xl font-thin text-gray-600">Included pipes in Angular</h3>
+</section>
+
+<div class="stats stats-vertical lg:stats-horizontal shadow mt-8  bg-base-200 w-full">
+  <div class="stat flex flex-col items-center">
+    <div class="stat-title">Name (Lower)</div>
+    <div class="stat-value">{{ nameLower() | lowercase }}</div>
+  </div>
+
+  <div class="stat flex flex-col items-center">
+    <div class="stat-title">Name (Upper)</div>
+    <div class="stat-value">{{ nameUpper() | uppercase }}</div>
+  </div>
+
+  <div class="stat flex flex-col items-center">
+    <div class="stat-title">Full Name (Title Case)</div>
+    <div class="stat-value">{{ fullName() | titlecase }}</div>
+  </div>
+</div>
+
+
+<div class="divider"></div>
+
+<div class="stats stats-vertical lg:stats-horizontal shadow  bg-base-200 w-full">
+  <div class="stat flex flex-col items-center">
+    <div class="stat-title">Date (Short)</div>
+    <div class="stat-value">{{ customDate() | date:'short' }}</div>
+    <div class="stat-desc">{{customDate() }}</div>
+  </div>
+
+  <div class="stat flex flex-col items-center">
+    <div class="stat-title">Date (Medium & Timezone GMT-6)</div>
+    <div class="stat-value">{{ customDate() | date:'medium' : 'GMT-6' }}</div>
+    <div class="stat-desc">{{customDate() }}</div>
+  </div>
+</div>
+
+<div class="stats stats-vertical lg:stats-horizontal shadow  bg-base-200 w-full">
+
+  <div class="stat flex flex-col items-center">
+    <div class="stat-title">Date (Long & Timezone EST)</div>
+    <div class="stat-value">{{ customDate() | date:'long' : 'EST' }}</div>
+    <div class="stat-desc">{{customDate() }}</div>
+  </div>
+
+</div>
+
+<div class="divider"></div>
+
+<div class="flex flex-col gap-4 items-center">
+
+  <div>
+    <h1 class="text-2xl font-bold">
+      Current Locale:
+      <span class="badge badge-warning badge-lg">{{ localeService.getCurrentLocale() | uppercase }}</span>
+    </h1>
+  </div>
+
+  <div class="flex gap-2">
+    <button class="btn btn-primary" (click)="changeLocale('en-US')">en-US</button>
+    <button class="btn btn-secondary" (click)="changeLocale('es-CR')">es-CR</button>
+    <button class="btn btn-accent" (click)="changeLocale('fr-FR')">fr-FR</button>
+  </div>
+
+
+
+</div>

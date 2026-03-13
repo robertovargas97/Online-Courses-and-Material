@@ -1,1 +1,49 @@
-<p>uncommon-page works!</p>,
+<section class="mt-8 flex flex-col items-center">
+  <h1 class="text-3xl font-bold">Uncommon Pipes</h1>
+  <h3 class="text-2xl font-thin text-gray-600">Included pipes in Angular</h3>
+</section>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+
+  <card [cardTitle]="'i18nSelect Pipe'">
+    <p>Greetings {{ client().name }}, it is a pleasure to meet you and invite you to our event! {{ client().gender |
+      i18nSelect: invitationMap }}</p>
+    <button (click)="changeClient()" class="btn btn-secondary">Change Client</button>
+  </card>
+
+  <card [cardTitle]="'i18nPlural Pipe'">
+    <p>{{ quantity() }} {{ quantity() | i18nPlural: quantityMap }}</p>
+    <button [class.btn-warning]="quantity() < 0 || quantity() > 1" (click)="quantity.set(quantity() + 1)"
+      class="btn btn-secondary">Increase Quantity</button>
+    <button [class.btn-warning]="quantity() < 0 || quantity() > 1" (click)="quantity.set(quantity() - 1)"
+      class="btn btn-accent">Decrease Quantity</button>
+  </card>
+
+  <card [cardTitle]="'Slice Pipe'">
+    <p>{{ client().name | slice:0:3 }}</p>
+  </card>
+
+  <card [cardTitle]="'Json Pipe'">
+    <pre>{{ client() | json }}</pre>
+  </card>
+
+  <card [cardTitle]="'Key Value Pipe'">
+    <!-- <pre>{{ keyValueMap | keyvalue | json }}</pre> -->
+    <ul>
+      @for (keyvalue of keyValueMap | keyvalue; track $index) {
+      <li>
+        <span class="font-bold text-secondary">{{ keyvalue.key | titlecase }}</span>: {{ keyvalue.value }}
+      </li>
+      }
+    </ul>
+  </card>
+
+  <card [cardTitle]="'Async Pipe'">
+    <p>{{ promiseValue | async }}</p>
+
+    @if (promiseValue | async; as value) {
+    <p class="text-accent">{{ value }}</p>
+    }
+  </card>
+
+</div>

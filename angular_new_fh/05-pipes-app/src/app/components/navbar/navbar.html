@@ -1,0 +1,6 @@
+<div class="navbar bg-base-100 shadow-sm bg-primary rounded-box mb-5">
+  @for (link of links; track link.path) {
+  <a class="btn btn-ghost mx-2" [routerLink]="link.path" routerLinkActive="btn-soft btn-primary text-white">{{
+    link.title }}</a>
+  }
+</div>
